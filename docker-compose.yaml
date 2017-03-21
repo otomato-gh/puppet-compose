@@ -1,0 +1,11 @@
+version: '2'
+services:
+  puppet:
+    image: otomato/puppet
+    volumes:
+      - ./code:/etc/puppet/code
+    ports:
+      - 8141
+  agent:
+    image: otomato/puppet-agent
+    command: ["tail", "-f", "/dev/null"]

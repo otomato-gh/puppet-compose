@@ -1,0 +1,17 @@
+---
+:backends:
+#   - eyaml
+   - yaml
+
+:yaml:
+  :datadir: /etc/puppet/code/environments/%{environment}/hieradata
+:eyaml:
+  :datadir: /etc/puppet/code/environments/%{environment}/hieradata
+  :pkcs7_private_key: /etc/puppet/keys/private_key.pkcs7.pem
+  :pkcs7_public_key:  /etc/puppet/keys/public_key.pkcs7.pem
+
+:hierarchy:
+  - secure
+  - "nodes/%{::trusted.certname}"
+  - common
+
